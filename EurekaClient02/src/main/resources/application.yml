@@ -1,0 +1,15 @@
+server:
+  port : 8082
+  
+spring:
+  mvc:
+    view:
+      prefix: /WEB-INF/views/
+      suffix: .jsp
+  application:
+       name: Service01
+       
+eureka:
+  instance:
+    prefer-ip-address: true
+     

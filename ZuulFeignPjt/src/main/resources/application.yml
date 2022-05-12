@@ -1,0 +1,30 @@
+server:
+  port: 8765 # 쥴이 사용하는 포트번호(localhost:8765/??????)이렇게 사용하겠다.
+      
+spring:
+  mvc:
+    view:
+      prefix: /WEB-INF/views/
+      suffix: .jsp
+  application:
+    name: api-gateway # 애플리케이션 이름 유레카 대시보드에 뜨는 이름
+#여기가 중요한 부분    
+zuul:
+  routes:
+    service01:      # service01이라고 하는 유레카에 등록된 서비스로 이쪽으로 가세요 이쪽으로 가세영
+      path: /app/** # 이렇게 입력이 되면 (localhost:8765/app) 주소창에 요렇게 입력이되면 
+      #service-id: Service01 # localhost:8765/Service01/입출고/app/이런식으로 사용이됨
+      strip-prefix: false
+      
+    service02:
+      path: /bpp/** # 이렇게 입력이 되면 (localhost:8765/bpp) service02라고 입력되어있는 저 서비스로 가세요 
+      #service-id: Service02
+      strip-prefix: false
+
+eureka:
+  instance:
+    non-secure-port: ${server.port}
+    prefer-ip-address: true
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka #유레카로 등록하기위한 부분

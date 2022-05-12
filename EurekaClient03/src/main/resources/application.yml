@@ -1,0 +1,15 @@
+server:
+  port : 8083
+  
+spring:
+  mvc:
+    view:
+      prefix: /WEB-INF/views/
+      suffix: .jsp
+  application:
+       name: Service02 #포트번호 2,3 번 모두 이 service02가 관리한다.
+       
+eureka:
+  instance:
+    prefer-ip-address: true
+     

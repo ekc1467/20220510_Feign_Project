@@ -1,0 +1,12 @@
+server:
+  port: 8081
+  
+spring:
+  mvc:
+    view:
+      prefix: /WEB-INF/views/
+      suffix: .jsp
+feign:
+  hystrix:
+    enabled: true
+    

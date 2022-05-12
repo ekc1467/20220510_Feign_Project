@@ -1,0 +1,13 @@
+#클라이언트 서버를 사용하지 않기에 리본과 다르게 클라이언트 쪽 설정은 하지 않았다.
+server:
+  port: 8761
+
+eureka:
+  instance:
+    hostname: localhost
+  client:
+    registerWithEureka: false
+    fetchRegistry: false
+    serviceUrl:
+      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
+    registryFetchIntervalSeconds: 5 #30 진선이가 알려준 유레카 서버 시간 조절하는거
